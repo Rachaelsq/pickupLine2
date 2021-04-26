@@ -1,9 +1,5 @@
 
-/* <!-- 
-    ==============
-MAD LIB VERSION
-    ==============
---> */
+
 
 /* array of pickup lines */
 const pickupArray = [
@@ -15,16 +11,19 @@ const pickupArray = [
     'There must be something wrong with my eyes. I cant take them off you.'
   ];
 
+
 /* Get random pickup line from array */
 let pickupLine = pickupArray[Math.floor(Math.random() * pickupArray.length)];
-console.log(JSON.stringify(pickupLine))
+/* console.log(JSON.stringify(pickupLine))*/
 const notAnObject = JSON.stringify(pickupLine)
+
+
 
 /* random pick up line button1 1 */
 const button = document.getElementById('button1Id');
 /* button function */
 document.getElementById(button1Id).addEventListener(click, btnFunc());
-
+  
 function btnFunc() {
   document.querySelector("h2").innerHTML = notAnObject
 }
@@ -43,26 +42,35 @@ function btnFunc() {
 
 
 /* 
-noun 
+==============
+NOUN
+==============
 */
 
 /* Get the noun from input */
 let noun = document.getElementById("noun");
 let nounValue = document.getElementById("noun").value;
 
-/* make noun display in paragraph until pickup display is redone */
-document.querySelector("nounTest").innerHTML = nounValue
-
-
-
 /* madlib button */
 const madlibBtn = document.getElementById('madlibBtn');
-/* madlib button function */
-document.getElementById(madlibBtn).addEventListener(click, nounFunc());
 
+/* run function on button submit */
 function nounFunc() {
-  document.querySelector("p").innerHTML = notAnObject
+  document.querySelector("nounTest").innerHTML = nounValue
 }
+
+
+const submitMadlibs = document.querySelector('[name="submitMadlibs"]')
+
+submitMadlibs.addEventListener('submit', function(event) {
+  event.preventDefault()
+  event.currentTarget.querySelector('[name="noun"]')
+  console.log(event.currentTarget.noun.value)
+});
+
+/* madlib button function */
+/* document.getElementById(madlibBtn).addEventListener(click, nounFunc());*/
+
 
 
 
